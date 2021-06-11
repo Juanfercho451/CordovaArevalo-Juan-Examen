@@ -41,6 +41,81 @@ public class PedidosBean implements Serializable {
 	public void init() {
 		list = ejbPedidosFacade.findAll();
 		comidas = new Comidas();
+		tarjetaCredito = new TarjetaCredito();
+	}
+	
+	
+
+	public List<Pedidos> getList() {
+		return list;
+	}
+
+	public void setList(List<Pedidos> list) {
+		this.list = list;
+	}
+
+	public String getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
+	public String getNombreCliente() {
+		return nombreCliente;
+	}
+
+	public void setNombreCliente(String nombreCliente) {
+		this.nombreCliente = nombreCliente;
+	}
+
+	public double getSubtotal() {
+		return subtotal;
+	}
+
+	public void setSubtotal(double subtotal) {
+		this.subtotal = subtotal;
+	}
+
+	public double getIva() {
+		return iva;
+	}
+
+	public void setIva(double iva) {
+		this.iva = iva;
+	}
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+	public String getObservaciones() {
+		return observaciones;
+	}
+
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
+	}
+
+	public Comidas getComidas() {
+		return comidas;
+	}
+
+	public void setComidas(Comidas comidas) {
+		this.comidas = comidas;
+	}
+
+	public TarjetaCredito getTarjetaCredito() {
+		return tarjetaCredito;
+	}
+
+	public void setTarjetaCredito(TarjetaCredito tarjetaCredito) {
+		this.tarjetaCredito = tarjetaCredito;
 	}
 
 	public String add() {
