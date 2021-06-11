@@ -24,5 +24,10 @@ public class TarjetaCreditoFacade extends AbstractFacade<TarjetaCredito> {
     protected EntityManager getEntityManager() {
         return em;
     }
-
+    @SuppressWarnings("unchecked")
+  	public List<TarjetaCredito> findByAlmacen(int codigo){
+          String jpql = "select p from TarjetaCredito p where p.tarjetaCredito.codigo="+codigo;
+          return (List<TarjetaCredito>) em.createQuery(jpql).getResultList();
+          
+      }
 }

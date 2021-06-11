@@ -133,7 +133,7 @@ public class PedidosBean implements Serializable {
 		return null;
 	}
 
-	public void buscarPorTrajeta() {
+	public void buscarPorTarjeta() {
 		if (tarjetaCredito != null) {
 			this.list = ejbPedidosFacade.findByAlmacen(this.tarjetaCredito.getCodigo());
 		} else {
