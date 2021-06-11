@@ -29,7 +29,7 @@
 		</div>
 	</div>
 	</header> </section>
-	
+
 
 	<div>
 		<h:form class="was-validated">
@@ -54,8 +54,7 @@
 											<f:facet name="header">Fecha</f:facet>
 											<h:inputText value="#{c.fecha}" size="10"
 												rendered="#{c.editable}" />
-											<h:outputText value="#{c}"
-												rendered="#{not c.editable}" />
+											<h:outputText value="#{c}" rendered="#{not c.editable}" />
 										</h:column>
 										<h:column>
 											<f:facet name="header">Nombre Cliente</f:facet>
@@ -69,7 +68,8 @@
 											<f:facet name="header">Subtotal</f:facet>
 											<h:inputText value="#{c.subtotal}" size="10"
 												rendered="#{c.editable}" />
-											<h:outputText value="#{c.subtotal}" rendered="#{not c.editable}" />
+											<h:outputText value="#{c.subtotal}"
+												rendered="#{not c.editable}" />
 										</h:column>
 										<h:column>
 											<f:facet name="header">IVA</f:facet>
@@ -87,9 +87,10 @@
 											<f:facet name="header">Observaciones</f:facet>
 											<h:inputText value="#{c.observaciones}" size="10"
 												rendered="#{c.editable}" />
-											<h:outputText value="#{c.observaciones}" rendered="#{not c.editable}" />
+											<h:outputText value="#{c.observaciones}"
+												rendered="#{not c.editable}" />
 										</h:column>
-										
+
 										<h:column>
 
 											<h:commandLink action="#{pedidosBean.delete(c)}"
@@ -119,20 +120,32 @@
 									</div>
 
 									<div class="mb-3 row">
-										<label for="staticEmail" class="col-sm-2 col-form-label">Nombre del Cliente</label>
+										<label for="staticEmail" class="col-sm-2 col-form-label">Nombre
+											del Cliente</label>
 										<div class="col-sm-10">
 											<h:inputText type="text" class="form-control"
 												value="#{pedidosBean.nombreCliente}" />
 										</div>
 									</div>
 
-								
+									<div class="mb-3 row">
+										<label for="staticEmail" class="col-sm-2 col-form-label">Comidas</label>
+										<div class="col-sm-10">
+											<h:selectOneMenu converter="Convertidor" class="form-control"
+												value="#{pedidosBean.comidas}">
+												<f:selectItem itemLabel="-Seleccione-" itemValue="" />
+												<f:selectItems var="c" itemValue="#{c}"
+													itemLabel="#{c.comidas.nombre}" value="#{almacenBean.list}"></f:selectItems>
+											</h:selectOneMenu>
+											<br />
+										</div>
+									</div>
 
 									<h:commandButton value="Agregar" action="#{pedidosBean.add}"
 										class="btn btn-success">
 
 									</h:commandButton>
-									
+
 								</div>
 							</div>
 						</div>

@@ -133,9 +133,9 @@ public class PedidosBean implements Serializable {
 		return null;
 	}
 
-	public void buscarPorAlmacen() {
-		if (comidas != null) {
-			this.list = ejbPedidosFacade.findByAlmacen(this.comidas.getCodigo());
+	public void buscarPorTrajeta() {
+		if (tarjetaCredito != null) {
+			this.list = ejbPedidosFacade.findByAlmacen(this.tarjetaCredito.getCodigo());
 		} else {
 			this.list = this.ejbPedidosFacade.findAll();
 		}
