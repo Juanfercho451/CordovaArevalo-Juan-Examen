@@ -3,13 +3,14 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
-	<persistence-unit name="Ejemplo.EJB.JSF.JPA"
+	<persistence-unit name="CordovaArevalo-Juan-Examen"
 		transaction-type="JTA">
 		<jta-data-source>jdbc/__ejemplo</jta-data-source>
 		<class>ec.edu.ups.entidad.Comidas</class>
 		<class>ec.edu.ups.entidad.Pedidos</class>
+		<class>ec.edu.ups.entidad.TarjetaCredito</class>
 		<properties>
-			<property name="javax.persistence.schema-generation.database.action" value="create" />
+			<property name="javax.persistence.schema-generation.database.action" value="create" ></property>
 		</properties>
 	</persistence-unit>
 </persistence>

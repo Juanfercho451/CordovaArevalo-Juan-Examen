@@ -15,34 +15,38 @@ public class Pedidos implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int numero;
-    private String fecha;
-    private String nombreCliente;
-    private double subtotal;
-    private double iva;
-    private double total;
-    private String observaciones;
- 
-    @ManyToOne
-    private Comidas comidas;
-    //@ManyToOne
-    //private TarjetaCredito tarjetCredito;
-    @Transient
-    private boolean editable;
-    
-    public Pedidos() {
-    	super();
-    }
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int numero;
+	private String fecha;
+	private String nombreCliente;
+	private double subtotal;
+	private double iva;
+	private double total;
+	private String observaciones;
 
-    public Pedidos(String fecha, String nombre_cliente, double subtotal, double iva, double total, String observaciones) {
-	this.fecha = fecha;
-	this.nombreCliente = nombre_cliente;
-	this.subtotal = subtotal;
-	this.iva = iva;
-	this.total = total;
-	this.observaciones = observaciones;
-    }
+	@ManyToOne
+	private Comidas comidas;
+	@ManyToOne
+	private TarjetaCredito tarjetaCredito;
+	@Transient
+	private boolean editable;
+
+	public Pedidos() {
+		super();
+	}
+
+	public Pedidos(String fecha, String nombre_cliente, double subtotal, double iva, double total, String observaciones,
+			Comidas comida, TarjetaCredito tarjetaCredito) {
+		this.fecha = fecha;
+		this.nombreCliente = nombre_cliente;
+		this.subtotal = subtotal;
+		this.iva = iva;
+		this.total = total;
+		this.observaciones = observaciones;
+		this.comidas = comida;
+		this.tarjetaCredito = tarjetaCredito;
+	}
+
 	public int getNumero() {
 		return numero;
 	}
@@ -107,6 +111,14 @@ public class Pedidos implements Serializable {
 		this.comidas = comidas;
 	}
 
+	public TarjetaCredito getTarjetaCredito() {
+		return tarjetaCredito;
+	}
+
+	public void setTarjetaCredito(TarjetaCredito tarjetaCredito) {
+		this.tarjetaCredito = tarjetaCredito;
+	}
+
 	public boolean isEditable() {
 		return editable;
 	}
@@ -130,6 +142,7 @@ public class Pedidos implements Serializable {
 		result = prime * result + ((observaciones == null) ? 0 : observaciones.hashCode());
 		temp = Double.doubleToLongBits(subtotal);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((tarjetaCredito == null) ? 0 : tarjetaCredito.hashCode());
 		temp = Double.doubleToLongBits(total);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
@@ -172,6 +185,11 @@ public class Pedidos implements Serializable {
 			return false;
 		if (Double.doubleToLongBits(subtotal) != Double.doubleToLongBits(other.subtotal))
 			return false;
+		if (tarjetaCredito == null) {
+			if (other.tarjetaCredito != null)
+				return false;
+		} else if (!tarjetaCredito.equals(other.tarjetaCredito))
+			return false;
 		if (Double.doubleToLongBits(total) != Double.doubleToLongBits(other.total))
 			return false;
 		return true;
@@ -181,9 +199,7 @@ public class Pedidos implements Serializable {
 	public String toString() {
 		return "Pedidos [numero=" + numero + ", fecha=" + fecha + ", nombreCliente=" + nombreCliente + ", subtotal="
 				+ subtotal + ", iva=" + iva + ", total=" + total + ", observaciones=" + observaciones + ", comidas="
-				+ comidas + ", editable=" + editable + "]";
+				+ comidas + ", tarjetaCredito=" + tarjetaCredito + ", editable=" + editable + "]";
 	}
 
-	
-	
 }
