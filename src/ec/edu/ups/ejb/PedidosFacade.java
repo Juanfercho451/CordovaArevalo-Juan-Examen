@@ -23,10 +23,10 @@ public class PedidosFacade extends AbstractFacade<Pedidos> {
     protected EntityManager getEntityManager() {
         return em;
     }
-    @SuppressWarnings("unchecked")
+  /*  @SuppressWarnings("unchecked")
   	public List<Pedidos> findByAlmacen(int codigo){
           String jpql = "select p from Product p where p.almacen.codigo="+codigo;
           return (List<Pedidos>) em.createQuery(jpql).getResultList();
           
-      }
+      }*/
 }

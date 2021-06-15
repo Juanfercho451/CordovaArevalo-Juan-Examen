@@ -24,10 +24,15 @@ public class Pedidos implements Serializable {
 	private double total;
 	private String observaciones;
 
-	@ManyToOne
-	private Comidas comidas;
-	@ManyToOne
+	//@ManyToOne
+	//private Comidas comidas;
+	
+	@OneToMany (mappedBy = "pedidos")
+	private List<Comidas> comidas;
+	
+	@OneToOne
 	private TarjetaCredito tarjetaCredito;
+	
 	@Transient
 	private boolean editable;
 
@@ -43,7 +48,7 @@ public class Pedidos implements Serializable {
 		this.iva = iva;
 		this.total = total;
 		this.observaciones = observaciones;
-		this.comidas = comida;
+		//this.comidas = comida;
 		this.tarjetaCredito = tarjetaCredito;
 	}
 
@@ -103,11 +108,11 @@ public class Pedidos implements Serializable {
 		this.observaciones = observaciones;
 	}
 
-	public Comidas getComidas() {
+	public List<Comidas> getComidas() {
 		return comidas;
 	}
 
-	public void setComidas(Comidas comidas) {
+	public void setComidas(List<Comidas> comidas) {
 		this.comidas = comidas;
 	}
 

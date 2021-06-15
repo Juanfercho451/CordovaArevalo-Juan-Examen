@@ -39,77 +39,12 @@
 					<div class="col">
 						<div class="card">
 							<div class="card-header">
-								<i class="fas fa-truck-moving"></i>
 								<h4>Ingrese los pedidos</h4>
 							</div>
 							<div class="card-body">
 								<div class="modal-body">
 
-									<h:dataTable value="#{pedidosBean.list}" var="c"
-										styleClass="table table-striped" id="table-1"
-										headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
-										<h:column>
-											<f:facet name="header">Numero</f:facet>#{c.numero}</h:column>
-										<h:column>
-											<f:facet name="header">Fecha</f:facet>
-											<h:inputText value="#{c.fecha}" size="10"
-												rendered="#{c.editable}" />
-											<h:outputText value="#{c}" rendered="#{not c.editable}" />
-										</h:column>
-										<h:column>
-											<f:facet name="header">Nombre Cliente</f:facet>
-											<h:inputText value="#{c.nombreCliente}" size="10"
-												rendered="#{c.editable}" />
-											<h:outputText value="#{c.nombreCliente}"
-												rendered="#{not c.editable}" />
-										</h:column>
 
-										<h:column>
-											<f:facet name="header">Subtotal</f:facet>
-											<h:inputText value="#{c.subtotal}" size="10"
-												rendered="#{c.editable}" />
-											<h:outputText value="#{c.subtotal}"
-												rendered="#{not c.editable}" />
-										</h:column>
-										<h:column>
-											<f:facet name="header">IVA</f:facet>
-											<h:inputText value="#{c.iva}" size="10"
-												rendered="#{c.editable}" />
-											<h:outputText value="#{c.iva}" rendered="#{not c.editable}" />
-										</h:column>
-										<h:column>
-											<f:facet name="header">Total</f:facet>
-											<h:inputText value="#{c.total}" size="10"
-												rendered="#{c.editable}" />
-											<h:outputText value="#{c.total}" rendered="#{not c.editable}" />
-										</h:column>
-										<h:column>
-											<f:facet name="header">Observaciones</f:facet>
-											<h:inputText value="#{c.observaciones}" size="10"
-												rendered="#{c.editable}" />
-											<h:outputText value="#{c.observaciones}"
-												rendered="#{not c.editable}" />
-										</h:column>
-
-										<h:column>
-
-											<h:commandLink action="#{pedidosBean.delete(c)}"
-												class="btn btn-danger">
-												<i class="fas fa-trash"></i>
-											</h:commandLink>
-										</h:column>
-										<h:column>
-
-											<h:commandLink action="#{pedidosBean.edit(c)}"
-												class="btn btn-warning" rendered="#{not c.editable}">
-												<i class="far fa-edit"></i>
-											</h:commandLink>
-											<h:commandLink action="#{pedidosBean.save(c)}"
-												class="btn btn-success" rendered="#{c.editable}">
-												<i class="fas fa-save"></i>
-											</h:commandLink>
-										</h:column>
-									</h:dataTable>
 
 									<div class="mb-3 row">
 										<label for="staticEmail" class="col-sm-2 col-form-label">Fecha</label>
@@ -146,6 +81,83 @@
 
 									</h:commandButton>
 
+									<div class="card">
+										<div class="card-header">
+											<h4>Resumen de Pedido</h4>
+										</div>
+										<div class="card-body">
+											<div class="modal-body">
+
+												<h:dataTable value="#{pedidosBean.list}" var="c"
+													styleClass="table table-striped" id="table-1"
+													headerClass="cabeceraTabla" rowClasses="filaPar,filaImpar">
+													<h:column>
+														<f:facet name="header">Numero</f:facet>#{c.numero}</h:column>
+													<h:column>
+														<f:facet name="header">Fecha</f:facet>
+														<h:inputText value="#{c.fecha}" size="10"
+															rendered="#{c.editable}" />
+														<h:outputText value="#{c}" rendered="#{not c.editable}" />
+													</h:column>
+													<h:column>
+														<f:facet name="header">Nombre Cliente</f:facet>
+														<h:inputText value="#{c.nombreCliente}" size="10"
+															rendered="#{c.editable}" />
+														<h:outputText value="#{c.nombreCliente}"
+															rendered="#{not c.editable}" />
+													</h:column>
+
+													<h:column>
+														<f:facet name="header">Subtotal</f:facet>
+														<h:inputText value="#{c.subtotal}" size="10"
+															rendered="#{c.editable}" />
+														<h:outputText value="#{c.subtotal}"
+															rendered="#{not c.editable}" />
+													</h:column>
+													<h:column>
+														<f:facet name="header">IVA</f:facet>
+														<h:inputText value="#{c.iva}" size="10"
+															rendered="#{c.editable}" />
+														<h:outputText value="#{c.iva}"
+															rendered="#{not c.editable}" />
+													</h:column>
+													<h:column>
+														<f:facet name="header">Total</f:facet>
+														<h:inputText value="#{c.total}" size="10"
+															rendered="#{c.editable}" />
+														<h:outputText value="#{c.total}"
+															rendered="#{not c.editable}" />
+													</h:column>
+													<h:column>
+														<f:facet name="header">Observaciones</f:facet>
+														<h:inputText value="#{c.observaciones}" size="10"
+															rendered="#{c.editable}" />
+														<h:outputText value="#{c.observaciones}"
+															rendered="#{not c.editable}" />
+													</h:column>
+
+													<h:column>
+
+														<h:commandLink action="#{pedidosBean.delete(c)}"
+															class="btn btn-danger">
+															<i class="fas fa-trash"></i>
+														</h:commandLink>
+													</h:column>
+													<h:column>
+
+														<h:commandLink action="#{pedidosBean.edit(c)}"
+															class="btn btn-warning" rendered="#{not c.editable}">
+															<i class="far fa-edit"></i>
+														</h:commandLink>
+														<h:commandLink action="#{pedidosBean.save(c)}"
+															class="btn btn-success" rendered="#{c.editable}">
+															<i class="fas fa-save"></i>
+														</h:commandLink>
+													</h:column>
+												</h:dataTable>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

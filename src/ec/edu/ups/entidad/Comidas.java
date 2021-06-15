@@ -19,8 +19,11 @@ public class Comidas implements Serializable {
 	private int codigo;
 	private String nombre;
 	private double precio_unitario;
-	@OneToMany(mappedBy = "comidas")
-	private List<Pedidos> pedidos;
+	//@OneToMany(mappedBy = "comidas")
+	//private List<Pedidos> pedidos;
+	@ManyToOne
+	private Pedidos pedidos;
+	
 	@Transient
 	private boolean editable;
 
@@ -50,10 +53,13 @@ public class Comidas implements Serializable {
 	public void setPrecio_unitario(double precio_unitario) {
 		this.precio_unitario = precio_unitario;
 	}
-	public List<Pedidos> getPedidos() {
+
+	
+	
+	public Pedidos getPedidos() {
 		return pedidos;
 	}
-	public void setPedidos(List<Pedidos> pedidos) {
+	public void setPedidos(Pedidos pedidos) {
 		this.pedidos = pedidos;
 	}
 	public boolean isEditable() {
@@ -107,7 +113,5 @@ public class Comidas implements Serializable {
 		return "Comidas [codigo=" + codigo + ", nombre=" + nombre + ", precio_unitario=" + precio_unitario
 				+ ", pedidos=" + pedidos + ", editable=" + editable + "]";
 	}
-	
 
-	
 }
